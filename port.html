@@ -1,0 +1,370 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Atharva Sharma - The Method &amp; The Muse</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Inter:wght@300;400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#e5e2e1",
+              "on-tertiary-container": "#254188",
+              "glass-border": "rgba(255, 255, 255, 0.1)",
+              "on-secondary": "#2f3131",
+              "on-secondary-fixed-variant": "#454747",
+              "on-primary-fixed-variant": "#574500",
+              background: "#131313",
+              "surface-bright": "#3a3939",
+              "on-tertiary": "#082b72",
+              secondary: "#c6c6c7",
+              "inverse-on-surface": "#313030",
+              "surface-container-lowest": "#0e0e0e",
+              "on-primary": "#3c2f00",
+              "secondary-fixed": "#e2e2e2",
+              outline: "#99907c",
+              surface: "#131313",
+              "outline-variant": "#4d4635",
+              "surface-container-highest": "#353534",
+              "primary-fixed-dim": "#e9c349",
+              "inverse-primary": "#735c00",
+              "on-error-container": "#ffdad6",
+              "error-container": "#93000a",
+              "on-surface": "#e5e2e1",
+              "surface-container-high": "#2a2a2a",
+              "inverse-surface": "#e5e2e1",
+              "on-primary-container": "#554300",
+              "surface-dim": "#131313",
+              "surface-variant": "#353534",
+              "champagne-gold": "#D4AF37",
+              "surface-container-low": "#1c1b1b",
+              "surface-container": "#201f1f",
+              "deep-onyx": "#050505",
+              "on-surface-variant": "#d0c5af",
+              error: "#ffb4ab",
+              primary: "#f2ca50",
+              "on-secondary-container": "#b4b5b5",
+              "secondary-fixed-dim": "#c6c6c7",
+              "tertiary-fixed": "#dbe1ff",
+              "tertiary-fixed-dim": "#b4c5ff",
+              "primary-container": "#d4af37",
+              "primary-fixed": "#ffe088",
+              "tertiary-container": "#97b0ff",
+              "on-tertiary-fixed-variant": "#27438a",
+              tertiary: "#bfcdff",
+              "surface-tint": "#e9c349",
+              "on-tertiary-fixed": "#00174b",
+              "pure-white": "#FFFFFF",
+              "on-secondary-fixed": "#1a1c1c",
+              "on-error": "#690005",
+              "secondary-container": "#454747",
+              "on-primary-fixed": "#241a00",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              gutter: "32px",
+              "margin-mobile": "24px",
+              "section-gap": "160px",
+              "margin-desktop": "80px",
+              "inner-padding": "1.5rem",
+            },
+            fontFamily: {
+              "nav-label": ["Inter"],
+              "display-xl-mobile": ["Bodoni Moda"],
+              "body-lg": ["Inter"],
+              "headline-lg": ["Bodoni Moda"],
+              caption: ["Inter"],
+              "headline-md": ["Bodoni Moda"],
+              "body-md": ["Inter"],
+              "display-xl": ["Bodoni Moda"],
+            },
+            fontSize: {
+              "nav-label": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.3em",
+                  fontWeight: "500",
+                },
+              ],
+              "display-xl-mobile": [
+                "64px",
+                {
+                  lineHeight: "68px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "300",
+                },
+              ],
+              "headline-lg": [
+                "48px",
+                { lineHeight: "56px", fontWeight: "400" },
+              ],
+              caption: [
+                "11px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-md": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "400" },
+              ],
+              "body-md": ["16px", { lineHeight: "28px", fontWeight: "300" }],
+              "display-xl": [
+                "120px",
+                {
+                  lineHeight: "110px",
+                  letterSpacing: "-0.03em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #e5e2e1;
+      }
+      .grid-editorial {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 32px;
+      }
+      .glass-nav {
+        background: rgba(19, 19, 19, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .hairline-bottom {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .hairline-top {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body class="antialiased min-h-screen flex flex-col">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 glass-nav hairline-bottom">
+      <div
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-full"
+      >
+        <div
+          class="font-display-xl-mobile md:font-display-xl text-headline-md text-on-surface tracking-tighter"
+        >
+          ATHARVA SHARMA
+        </div>
+        <div class="hidden md:flex gap-8">
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-champagne-gold border-b border-champagne-gold pb-2 cursor-pointer transition-colors hover:text-champagne-gold transition-all duration-400 ease-in-out"
+            href="index.html"
+            >STORY</a
+          >
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant cursor-pointer transition-colors hover:text-champagne-gold transition-all duration-400 ease-in-out"
+            href="#"
+            >PORTFOLIO</a
+          >
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant cursor-pointer transition-colors hover:text-champagne-gold transition-all duration-400 ease-in-out"
+            href="https://www.instagram.com/atharvasharma.co.in"
+            >Instagram</a
+          >
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant cursor-pointer transition-colors hover:text-champagne-gold transition-all duration-400 ease-in-out"
+            href="archive.html"
+            >TIMELINE</a
+          >
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant cursor-pointer transition-colors hover:text-champagne-gold transition-all duration-400 ease-in-out"
+            href="enq.html"
+            >BOOKING</a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main
+      class="flex-grow pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop"
+    >
+      <!-- Hero Title -->
+      <header class="mb-section-gap pt-24 text-center md:text-left">
+        <h1
+          class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface mb-8"
+        >
+          THE METHOD<br />&amp; THE MUSE
+        </h1>
+        <p
+          class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-champagne-gold"
+        >
+          CHAPTER I — A CINEMATIC JOURNEY
+        </p>
+      </header>
+      <!-- The Beginning Spread -->
+      <section class="mb-section-gap">
+        <div class="grid-editorial">
+          <div
+            class="col-span-12 md:col-span-5 md:col-start-1 flex flex-col justify-center mb-12 md:mb-0"
+          >
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-8">
+              The Beginning
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+              It started not in front of the lens, but in the quiet observation
+              of light and shadow. The transition from stillness to motion
+              required a complete deconstruction of form. Modeling taught the
+              vocabulary of the body; cinema demanded the soul.
+            </p>
+            <div class="border-l border-champagne-gold pl-6 py-2 my-8">
+              <p
+                class="font-headline-md text-headline-md text-champagne-gold italic"
+              >
+                "To pose is to freeze time. To act is to let it flow through
+                you, leaving scars and stories in its wake."
+              </p>
+            </div>
+          </div>
+          <div class="col-span-12 md:col-span-6 md:col-start-7">
+            <div
+              class="relative w-full aspect-[3/4] border border-glass-border p-4"
+            >
+              <img
+                alt="Atharva Sharma in a moody, cinematic lighting setup, exuding intense focus and raw emotion, reminiscent of classic film noir style photography."
+                class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGuzuTwH0l-gEgJHiUdCDOjWVPmnLSYF68BKzxM6CL2BSy3f4x6p-r5Ke7gMq55S6mwWO5Y-12yom0uUwMhdhvezSpBH5CBnqTaNt3zP3Thy4_3B4nCnzDlVQZLKC9Zn1EGvusKvcUpwScKortIUzel9stCseAUhoDSIfypP2HyoVoTHHJNQDQsOd5lgrvVECIzr9HXwNL7PqB_zUS7gyi29glLBTvffIMs1ZJo_Mdyvidg8ZBxQI5VvLzMzi60WZu8s"
+              />
+            </div>
+            <p
+              class="font-caption text-caption text-on-surface-variant mt-4 text-right uppercase tracking-widest"
+            >
+              Fig. 1 — The Anatomy of a Scene
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- The Evolution Spread -->
+      <section class="mb-section-gap">
+        <div class="grid-editorial items-center">
+          <div class="col-span-12 md:col-span-7 md:col-start-1 mb-12 md:mb-0">
+            <div
+              class="relative w-full aspect-[16/9] border border-glass-border p-4"
+            >
+              <img
+                alt="A wide cinematic shot of Atharva Sharma in an elegant, mid-century modern setting, wearing bespoke tailoring, gazing thoughtfully out of frame."
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVlcU9MI-pTFZ5jQ2Gz40vFMLCRqTFbesipZr8QbopLgdsNJsYWEiHgfSo3Iws8NpZ6Ja1QsJWvs9cUUO8ONjK_YCWe8-o0ejQq8EhJ6ySLdQw6t16U6uZP2hm6iVJRUuY5SGkkrgD3l8Ogt1fuZs5BE58L1CxnvC127dCChjizpFbgoTCT8TQmpXTJ6qCrOj8q56QTZVY4GVh2qZNtVy2Oi53H3eCdbwOpphpM9RZ0iQUg71E4vSc9VdUWzN65OjTKGU"
+              />
+            </div>
+          </div>
+          <div class="col-span-12 md:col-span-4 md:col-start-9 flex flex-col">
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-8">
+              The Evolution
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+              Bridging the gap between high fashion and character study. Every
+              garment became a costume; every runway, a stage. The methodology
+              shifted from projecting an image to protecting a truth.
+            </p>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              The craft now relies on a deep well of empathy, drawing from the
+              silence between words. It is in these pauses that the true
+              performance breathes.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- The Future Spread -->
+      <section>
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="font-headline-lg text-headline-lg text-on-surface mb-12">
+            The Future
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-16">
+            A commitment to uncompromised storytelling. The upcoming slate
+            focuses on auteur-driven projects that challenge conventional
+            narratives, demanding physical and emotional transformation.
+          </p>
+          <a
+            class="inline-block border border-glass-border px-8 py-4 font-nav-label text-nav-label tracking-[0.3em] uppercase text-pure-white hover:border-champagne-gold hover:text-champagne-gold transition-all duration-400 ease-in-out"
+            href="#"
+          >
+            View Portfolio
+          </a>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-section-gap bg-deep-onyx hairline-top">
+      <div
+        class="flex flex-col items-center w-full px-margin-mobile md:px-margin-desktop"
+      >
+        <div
+          class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface text-center mb-12 tracking-tighter"
+        >
+          ATHARVA SHARMA
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 mb-16">
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-all duration-300"
+            href="#"
+            >INSTAGRAM</a
+          >
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-all duration-300"
+            href="#"
+            >VIMEO</a
+          >
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-all duration-300"
+            href="#"
+            >IMDB</a
+          >
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-all duration-300"
+            href="#"
+            >LINKEDIN</a
+          >
+        </div>
+        <div
+          class="font-body-md text-body-md text-on-surface-variant text-center"
+        >
+          © 2024 ATHARVA SHARMA. ALL RIGHTS RESERVED.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,605 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Works | Atharva Sharma</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Inter:wght@300;400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      /* Custom scrollbar for an elegant feel */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050505;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #353534;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d4af37;
+      }
+
+      /* Hover effect for portfolio items */
+      .portfolio-item .overlay {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .portfolio-item:hover .overlay {
+        opacity: 1;
+      }
+      .portfolio-item img {
+        transition: transform 0.8s ease-out;
+      }
+      .portfolio-item:hover img {
+        transform: scale(1.03);
+      }
+
+      /* Lightbox transitions */
+      #lightbox {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease-in-out;
+      }
+      #lightbox.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* Filter transitions */
+      .filter-btn {
+        position: relative;
+      }
+      .filter-btn::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 1px;
+        background-color: #d4af37;
+        transition: width 0.3s ease;
+      }
+      .filter-btn.active::after {
+        width: 100%;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#e5e2e1",
+              "glass-border": "rgba(255, 255, 255, 0.1)",
+              background: "#131313",
+              surface: "#131313",
+              "champagne-gold": "#D4AF37",
+              "deep-onyx": "#050505",
+              "on-surface-variant": "#d0c5af",
+              "on-surface": "#e5e2e1",
+              "pure-white": "#FFFFFF",
+            },
+            spacing: {
+              gutter: "32px",
+              "margin-mobile": "24px",
+              "section-gap": "160px",
+              "margin-desktop": "80px",
+              "inner-padding": "1.5rem",
+            },
+            fontFamily: {
+              "nav-label": ["Inter"],
+              "display-xl-mobile": ["Bodoni Moda"],
+              "body-lg": ["Inter"],
+              "headline-lg": ["Bodoni Moda"],
+              caption: ["Inter"],
+              "headline-md": ["Bodoni Moda"],
+              "body-md": ["Inter"],
+              "display-xl": ["Bodoni Moda"],
+            },
+            fontSize: {
+              "nav-label": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.3em",
+                  fontWeight: "500",
+                },
+              ],
+              "display-xl-mobile": [
+                "64px",
+                {
+                  lineHeight: "68px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "300",
+                },
+              ],
+              "headline-lg": [
+                "48px",
+                { lineHeight: "56px", fontWeight: "400" },
+              ],
+              caption: [
+                "11px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-md": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "400" },
+              ],
+              "body-md": ["16px", { lineHeight: "28px", fontWeight: "300" }],
+              "display-xl": [
+                "120px",
+                {
+                  lineHeight: "110px",
+                  letterSpacing: "-0.03em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-deep-onyx text-on-surface font-body-md antialiased min-h-screen flex flex-col"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-glass-border"
+    >
+      <div
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-full"
+      >
+        <div
+          class="font-display-xl text-headline-md text-on-surface tracking-tighter"
+        >
+          <a aria-label="Home" href="#">ATHARVA SHARMA</a>
+        </div>
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex space-x-8">
+          <li>
+            <a
+              class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-champagne-gold transition-all duration-400 ease-in-out"
+              href="index.html"
+              >STORY</a
+            >
+          </li>
+          <li>
+            <a
+              class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-champagne-gold border-b border-champagne-gold pb-2 hover:text-champagne-gold transition-all duration-400 ease-in-out"
+              href="port.html"
+              >PORTFOLIO</a
+            >
+          </li>
+          <li>
+            <a
+              class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-champagne-gold transition-all duration-400 ease-in-out"
+              href="https://www.instagram.com/atharvasharma.co.in"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a
+              class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-champagne-gold transition-all duration-400 ease-in-out"
+              href="#"
+              >TIMELINE</a
+            >
+          </li>
+          <li>
+            <a
+              class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-champagne-gold transition-all duration-400 ease-in-out"
+              href="enq.html"
+              >BOOKING</a
+            >
+          </li>
+        </ul>
+        <!-- Mobile Menu Toggle -->
+        <button aria-label="Toggle Menu" class="md:hidden text-on-surface">
+          <span class="material-symbols-outlined text-2xl" data-icon="menu"
+            >menu</span
+          >
+        </button>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main
+      class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop"
+    >
+      <!-- Header & Filters -->
+      <header
+        class="mb-24 flex flex-col items-center justify-center text-center"
+      >
+        <h1
+          class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface mb-8"
+        >
+          ARCHIVE
+        </h1>
+        <div
+          class="flex flex-wrap justify-center gap-8 border-b border-glass-border pb-4 w-full md:w-auto"
+        >
+          <button
+            class="filter-btn active font-nav-label text-nav-label tracking-[0.3em] uppercase text-champagne-gold transition-colors"
+            data-filter="all"
+          >
+            ALL
+          </button>
+          <button
+            class="filter-btn font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-colors"
+            data-filter="portrait"
+          >
+            PORTRAIT
+          </button>
+          <button
+            class="filter-btn font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-colors"
+            data-filter="editorial"
+          >
+            EDITORIAL
+          </button>
+          <button
+            class="filter-btn font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-colors"
+            data-filter="motion"
+          >
+            MOTION
+          </button>
+        </div>
+      </header>
+      <!-- Staggered Masonry Grid -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-12 gap-y-section-gap gap-x-gutter items-center"
+      >
+        <!-- Item 1: Large Left -->
+        <article
+          class="portfolio-item group relative col-span-1 md:col-span-7 cursor-pointer overflow-hidden"
+          data-category="editorial"
+          onclick="
+            openLightbox(
+              'https://lh3.googleusercontent.com/aida-public/AB6AXuCIRwzCRQfEywZ7hqOpRsMTp6VedT2t829DTVhExE11p9naxINf_V_s0gko-sb90tkSltyxpAwiRJOJ3NRrp_zo6Qdx7wsUNlJ1mYwy2yFzyP3XCWA1JrvXzR-JRqpuA-yN4mBfvCeclzONh2RdwQUloCI1eLhnb2LrXwSchkZo5lvRR7UvEHuKcU5QR5Fc6lzP78xsVqf0k_S4peQwmjiXM6Xmu0BBuOMk-f9qM-Zf4yD4_gnWKbS5ogf8J85WBDXYPN8',
+              'ARCHIVE.01',
+            )
+          "
+        >
+          <img
+            alt="Editorial Work"
+            class="w-full h-[80vh] object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+            data-alt="Atharva Sharma riding a white horse on a sandy beach. He is wearing a flowing white shirt and pants, with blue sunglasses. The background shows a calm ocean and a hazy sky. Cinematic composition."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_V49a1J9_ei1RaUK41vrAfbhGnhPtzm2kAuqEbOkp6iTRYj0iewZ4mgSfIhdDiJ9xmouSkq2vofqnCtCyeiRssFrO6Yd347yISpgjTLnLyGOdUQiDMDpPCJ06GhFgV0OxCuSlxFBYcQZYpRe5KW7y5qIPVrPbudCAQKFcpduxSavbdcirS6q2YElOXqK_i2ML76SRSwg7z-Q59OEwF0TNNFPgH-a-RMz6HLoGzXI7SDuHAJJ1Xk-pdn9mXp86RYr6WJ8"
+          />
+          <div
+            class="overlay absolute inset-0 bg-deep-onyx/40 flex items-center justify-center pointer-events-none"
+          >
+            <span
+              class="font-headline-md text-headline-md text-champagne-gold tracking-widest drop-shadow-lg"
+              >ARCHIVE.01</span
+            >
+          </div>
+          <div
+            class="mt-4 flex justify-between items-center hidden md:flex border-b border-glass-border pb-2"
+          >
+            <span
+              class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant"
+              >2024</span
+            >
+            <span class="font-caption text-caption uppercase text-on-surface"
+              >EDITORIAL</span
+            >
+          </div>
+        </article>
+        <!-- Item 2: Smaller Right, Shifted Down -->
+        <article
+          class="portfolio-item group relative col-span-1 md:col-span-4 md:col-start-9 md:mt-[30vh] cursor-pointer overflow-hidden"
+          data-category="portrait"
+          onclick="
+            openLightbox(
+              'https://lh3.googleusercontent.com/aida-public/AB6AXuDbzM4xSfs63tOMvhFT7Uj3r7QPnzoIZKLOt1Rm2c7AMNGCdEWTCYWI60F0BeXZNZgtqT0Oiyvd9-2UoE7cEX_FU_apzcm0QEIsEMbnIHm0nf5OdZAfdZawTG75zAU_R3y0nviU3-lb_oJdDwYMC06j67rHqLvofte2CNl4H90eAgBwQ55RTiIACDSCkXaXqaWppWcsGZzHhF9fJhQZBvVvBoIl6fjxDcbfwRQFGuqvnqqG-tpWepR6Y6f2_f8n94wKP7w',
+              'ARCHIVE.02',
+            )
+          "
+        >
+          <img
+            alt="Portrait Work"
+            class="w-full h-[60vh] object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+            data-alt="Atharva Sharma standing at night on a dark beach. He is wearing a white shirt and light pants, smiling warmly at the camera with glasses on. The ocean waves are visible in the dark background."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLBijgIH1Hqeum_EKz8EVznS-Vo_9vGtAGkmMkgY3qQJoPZ9_hg6SgZWkwyFiwFXvQD5r6YToDXmO4D4so06GbpRnts0HkLP5JZ6_yRQeKmKwj-0hteckuTCZ5F3KjlXdhcU_xk5zlytQHrEuXIW0LV_GiFB1vMd3LbluuWBBXoNYZPiQ3CBWPusWu7Qc4Wu95fXouYtLUfVjXunbh_-GCI45e-6yqYDNBP_v5DIb9R6JJy-XWKkqJB-raa9CByfvesYw"
+          />
+          <div
+            class="overlay absolute inset-0 bg-deep-onyx/40 flex items-center justify-center pointer-events-none"
+          >
+            <span
+              class="font-headline-md text-headline-md text-champagne-gold tracking-widest drop-shadow-lg"
+              >ARCHIVE.02</span
+            >
+          </div>
+          <div
+            class="mt-4 flex justify-between items-center border-b border-glass-border pb-2"
+          >
+            <span
+              class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant"
+              >2023</span
+            >
+            <span class="font-caption text-caption uppercase text-on-surface"
+              >PORTRAIT</span
+            >
+          </div>
+        </article>
+        <!-- Item 3: Center focus -->
+        <article
+          class="portfolio-item group relative col-span-1 md:col-span-8 md:col-start-3 cursor-pointer overflow-hidden"
+          data-category="editorial"
+          onclick="
+            openLightbox(
+              'https://lh3.googleusercontent.com/aida-public/AB6AXuDJR0zbexR1ZnYxgEzaDBkVq2ERTMB1ckuXea0OzzZDESquMuhf_naNDzGvhItymWfEGHn381IJLXrdI0jEX1RP-KJBk1M7Hz4RcAi5xtBohzZKCu1464CXhxLGo9-Wjb7CoRnnMf05IKl8LqV6zzE42HwklImAXq_lrNviASxQ8r5ztq8mj0bpeObg1CWT4AbJMpfcxrve1yDOqPXyjrFGQ6txnl9oYHwMozvHoI57xQTgqOFIhwsWYOKgl-o5wWxo43s',
+              'ARCHIVE.03',
+            )
+          "
+        >
+          <img
+            alt="Editorial Portrait"
+            class="w-full h-[70vh] object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+            data-alt="Atharva Sharma in a stylish indoor setting. He is wearing a dark textured blazer over a white shirt, smiling widely while looking off-camera. The room has vintage-style wallpaper and framed pictures."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6arydeR-FTkHAeUPO5jkWkXxIQsW-YzxMkjnQkaTQ7DUJdHfVjI560bBUdMg5h_pr79mcj2y3UlOflR0EXK-ta6-LO85fhoBISnWOe4DPjj_bB9k-q2jJMsg5RcZni5I3qXBS8EvXWNPU9L3uvc0opBTmKj_8uQtxy-Q5VPSHEDbRqOJv734vRCt9khRbvG2ifkAKdcxJ8iecJdRUioeQdM3GBpK3I34mv6SylDdwm7n7fSIdZCER1FZNWbFYWKmpGe8"
+          />
+          <div
+            class="overlay absolute inset-0 bg-deep-onyx/40 flex items-center justify-center pointer-events-none"
+          >
+            <span
+              class="font-headline-md text-headline-md text-champagne-gold tracking-widest drop-shadow-lg"
+              >ARCHIVE.03</span
+            >
+          </div>
+          <div
+            class="mt-4 flex justify-between items-center border-b border-glass-border pb-2"
+          >
+            <span
+              class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant"
+              >2024</span
+            >
+            <span class="font-caption text-caption uppercase text-on-surface"
+              >EDITORIAL</span
+            >
+          </div>
+        </article>
+        <!-- Item 4: Tall Left -->
+        <article
+          class="portfolio-item group relative col-span-1 md:col-span-5 md:col-start-1 cursor-pointer overflow-hidden"
+          data-category="motion"
+          onclick="
+            openLightbox(
+              'https://lh3.googleusercontent.com/aida-public/AB6AXuBZO3BPlVBns4UORNoyP0Dd6qFlG0I0Je9Az6NpVDBzsorcA61kz60-hCkvg9cGu5DMXdPyv_nct7OcZmC2Bn294qUAgIvtq9WSF1A7KtuSfhuMScImIGEd1h33O9rPgiI04EF5eDMM3oVgKASGnpJg_bLis8lJ7A0FAZlhy5MzBsRlJ3RzzpOBm2FxPvG8NuhC3Zk42PqT2xJb6cKSq6DvTaOEHmfPOH89dTemHyiD8mhtzUcQOmJMTGIB5XtCTF2YnyE',
+              'ARCHIVE.04',
+            )
+          "
+        >
+          <img
+            alt="Motion Still"
+            class="w-full h-[90vh] object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+            data-alt="Vertical portrait of Atharva Sharma, capturing a dynamic or moody moment suitable for a motion or film still representation. Dramatic lighting."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB56i84SXvT5O5Sn-i0JcAY1ks3_T7oSJRgvJK1nqeGT_LfEyJvnOxlGFJSMTlqkNAQzIjr2NCXuacIJ5Pg2ZjWLeDP6rEZ3YA4eNRhF0cqsBHV3TlIIGAQASRW_3ujkQOpN3KL-q3c5QfqddR2GdblawKDkvf82GjE_zJgksLMiORA4tmiXLbp3K5kLjylUa3yYUGzYPScSnMOHG5aMyIyN7-L5whlDH4Op0HyyRZAToUe64LznWeLsMQi4qHcZclTmv4"
+          />
+          <div
+            class="overlay absolute inset-0 bg-deep-onyx/40 flex items-center justify-center pointer-events-none"
+          >
+            <span
+              class="font-headline-md text-headline-md text-champagne-gold tracking-widest drop-shadow-lg"
+              >ARCHIVE.04</span
+            >
+          </div>
+          <div
+            class="mt-4 flex justify-between items-center border-b border-glass-border pb-2"
+          >
+            <span
+              class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant"
+              >2023</span
+            >
+            <span class="font-caption text-caption uppercase text-on-surface"
+              >MOTION</span
+            >
+          </div>
+        </article>
+        <!-- Text Block Right -->
+        <div
+          class="col-span-1 md:col-span-5 md:col-start-7 flex flex-col justify-center"
+        >
+          <h2
+            class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-pure-white mb-8 border-l-2 border-champagne-gold pl-6"
+          >
+            VISUAL NARRATIVES
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+            Every frame is a deliberately constructed scene. The intersection of
+            stark minimalism and raw human emotion, curated for the modern
+            cinematic eye.
+          </p>
+          <a
+            class="inline-block border border-glass-border py-4 px-8 font-nav-label text-nav-label tracking-[0.3em] uppercase text-pure-white hover:border-champagne-gold hover:text-champagne-gold transition-all duration-400 ease-in-out self-start"
+            href="#"
+          >
+            VIEW COMPLETE INDEX
+          </a>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-deep-onyx w-full py-section-gap border-t border-glass-border flex flex-col items-center px-margin-desktop"
+    >
+      <div
+        class="font-display-xl text-display-xl text-on-surface text-center mb-12"
+      >
+        ATHARVA SHARMA
+      </div>
+      <ul class="flex flex-wrap justify-center gap-8 mb-12">
+        <li>
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-all duration-300"
+            href="#"
+            >INSTAGRAM</a
+          >
+        </li>
+        <li>
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-all duration-300"
+            href="#"
+            >VIMEO</a
+          >
+        </li>
+        <li>
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-all duration-300"
+            href="#"
+            >IMDB</a
+          >
+        </li>
+        <li>
+          <a
+            class="font-nav-label text-nav-label tracking-[0.3em] uppercase text-on-surface-variant hover:text-pure-white transition-all duration-300"
+            href="#"
+            >LINKEDIN</a
+          >
+        </li>
+      </ul>
+      <div class="font-body-md text-body-md text-on-surface-variant">
+        © 2024 ATHARVA SHARMA. ALL RIGHTS RESERVED.
+      </div>
+    </footer>
+    <!-- Full-screen Cinematic Lightbox -->
+    <div
+      class="fixed inset-0 z-[100] bg-deep-onyx/95 backdrop-blur-3xl flex flex-col items-center justify-center p-8"
+      id="lightbox"
+    >
+      <button
+        aria-label="Close"
+        class="absolute top-8 right-8 md:top-12 md:right-12 text-on-surface-variant hover:text-champagne-gold transition-colors"
+        onclick="closeLightbox()"
+      >
+        <span class="material-symbols-outlined text-4xl" data-icon="close"
+          >close</span
+        >
+      </button>
+      <div class="max-w-[90vw] max-h-[80vh] relative">
+        <img
+          alt="Expanded View"
+          class="max-w-full max-h-[80vh] object-contain shadow-2xl"
+          id="lightbox-img"
+          src=""
+        />
+        <div class="absolute bottom-[-60px] left-0 w-full text-center">
+          <span
+            class="font-headline-md text-headline-md text-champagne-gold tracking-widest"
+            id="lightbox-caption"
+          ></span>
+        </div>
+      </div>
+    </div>
+    <!-- Interactive Scripts -->
+    <script>
+      // Filtering logic
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Update active state on buttons
+          filterBtns.forEach((b) => {
+            b.classList.remove("active", "text-champagne-gold");
+            b.classList.add("text-on-surface-variant");
+          });
+          btn.classList.add("active", "text-champagne-gold");
+          btn.classList.remove("text-on-surface-variant");
+
+          const filter = btn.getAttribute("data-filter");
+
+          // Filter items
+          portfolioItems.forEach((item) => {
+            if (
+              filter === "all" ||
+              item.getAttribute("data-category") === filter
+            ) {
+              item.style.display = "block";
+              // Simple fade in effect
+              setTimeout(() => {
+                item.style.opacity = "1";
+              }, 50);
+            } else {
+              item.style.opacity = "0";
+              setTimeout(() => {
+                item.style.display = "none";
+              }, 300); // match transition duration if added
+            }
+          });
+        });
+      });
+
+      // Lightbox logic
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+
+      function openLightbox(imgSrc, captionText) {
+        lightboxImg.src = imgSrc;
+        lightboxCaption.textContent = captionText;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = ""; // Restore scrolling
+        // Clear src after fade out
+        setTimeout(() => {
+          lightboxImg.src = "";
+        }, 400);
+      }
+
+      // Close lightbox on click outside image
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox.classList.contains("active")) {
+          closeLightbox();
+        }
+      });
+    </script>
+  </body>
+</html>
